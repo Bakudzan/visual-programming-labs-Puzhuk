@@ -1,10 +1,12 @@
 ```mermaid
 flowchart TD
-    Start([Старт: Пациент пришел]) --> Check{Есть в базе?}
-    Check -- Нет --> Create[Создать карту] --> ChooseDoc
-    Check -- Да --> ChooseDoc[Выбор врача]
-    ChooseDoc --> CheckSlots{Есть талоны?}
-    CheckSlots -- Нет --> OtherDay[Запись на другой день] --> Print
-    CheckSlots -- Да --> Print[Печать талона]
-    Print --> Finish([Конец: Талон выдан])
+    Start([Старт: Открытие приложения]) --> CheckCars{Авто рядом есть?}
+    CheckCars -- Нет --> SearchMore[Расширить радиус поиска] --> Start
+    CheckCars -- Да --> Book[Забронировать авто]
+    Book --> Inspect[Осмотр кузова]
+    Inspect --> CheckDamage{Есть царапины?}
+    CheckDamage -- Да --> SendPhoto[Отправить фото в поддержку] --> Unlock
+    CheckDamage -- Нет --> Unlock[Нажать 'Начать аренду']
+    Unlock --> OpenDoors[Разблокировка дверей]
+    OpenDoors --> Finish([Конец: Поездка началась])
 ```
