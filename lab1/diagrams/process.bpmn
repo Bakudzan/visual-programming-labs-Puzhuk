@@ -21,17 +21,16 @@
     </bpmn:exclusiveGateway>
     <bpmn:task id="Activity_1ukpcgf" name="Разблокировка двери">
       <bpmn:incoming>Flow_19uhosg</bpmn:incoming>
-      <bpmn:outgoing>Flow_1geo1yz</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1tw28rr</bpmn:outgoing>
     </bpmn:task>
     <bpmn:endEvent id="Event_0w5efnf">
-      <bpmn:incoming>Flow_1geo1yz</bpmn:incoming>
       <bpmn:incoming>Flow_1nrh3p9</bpmn:incoming>
+      <bpmn:incoming>Flow_1ls7nse</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1o4b4pc" sourceRef="StartEvent_187tu6x" targetRef="Gateway_00gix07" />
     <bpmn:sequenceFlow id="Flow_1pw1x13" name="Да" sourceRef="Gateway_00gix07" targetRef="Activity_0rz0s2t" />
     <bpmn:sequenceFlow id="Flow_1p2eod2" sourceRef="Activity_0rz0s2t" targetRef="Gateway_170c95s" />
     <bpmn:sequenceFlow id="Flow_19uhosg" name="Да" sourceRef="Gateway_170c95s" targetRef="Activity_1ukpcgf" />
-    <bpmn:sequenceFlow id="Flow_1geo1yz" sourceRef="Activity_1ukpcgf" targetRef="Event_0w5efnf" />
     <bpmn:task id="Activity_044mm9l" name="Найти авто">
       <bpmn:incoming>Flow_1l8srhb</bpmn:incoming>
       <bpmn:outgoing>Flow_0a59cq8</bpmn:outgoing>
@@ -39,6 +38,12 @@
     <bpmn:sequenceFlow id="Flow_1l8srhb" name="Нет" sourceRef="Gateway_00gix07" targetRef="Activity_044mm9l" />
     <bpmn:sequenceFlow id="Flow_0a59cq8" sourceRef="Activity_044mm9l" targetRef="Activity_0rz0s2t" />
     <bpmn:sequenceFlow id="Flow_1nrh3p9" name="Нет" sourceRef="Gateway_170c95s" targetRef="Event_0w5efnf" />
+    <bpmn:task id="Activity_04d6dz0" name="Завершение поездки и оплата">
+      <bpmn:incoming>Flow_1tw28rr</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ls7nse</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1tw28rr" sourceRef="Activity_1ukpcgf" targetRef="Activity_04d6dz0" />
+    <bpmn:sequenceFlow id="Flow_1ls7nse" sourceRef="Activity_04d6dz0" targetRef="Event_0w5efnf" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1erian9">
@@ -70,7 +75,11 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0w5efnf_di" bpmnElement="Event_0w5efnf">
-        <dc:Bounds x="802" y="242" width="36" height="36" />
+        <dc:Bounds x="802" y="342" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04d6dz0_di" bpmnElement="Activity_04d6dz0">
+        <dc:Bounds x="770" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1o4b4pc_di" bpmnElement="Flow_1o4b4pc">
         <di:waypoint x="192" y="100" />
@@ -94,10 +103,6 @@
           <dc:Bounds x="711" y="82" width="14" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1geo1yz_di" bpmnElement="Flow_1geo1yz">
-        <di:waypoint x="820" y="140" />
-        <di:waypoint x="820" y="242" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1l8srhb_di" bpmnElement="Flow_1l8srhb">
         <di:waypoint x="320" y="125" />
         <di:waypoint x="320" y="210" />
@@ -113,11 +118,19 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1nrh3p9_di" bpmnElement="Flow_1nrh3p9">
         <di:waypoint x="640" y="125" />
-        <di:waypoint x="640" y="260" />
-        <di:waypoint x="802" y="260" />
+        <di:waypoint x="640" y="360" />
+        <di:waypoint x="802" y="360" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="646" y="189.5" width="19" height="14" />
+          <dc:Bounds x="646" y="242.5" width="19" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tw28rr_di" bpmnElement="Flow_1tw28rr">
+        <di:waypoint x="820" y="140" />
+        <di:waypoint x="820" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ls7nse_di" bpmnElement="Flow_1ls7nse">
+        <di:waypoint x="820" y="270" />
+        <di:waypoint x="820" y="342" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
