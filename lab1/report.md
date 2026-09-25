@@ -1,8 +1,14 @@
 \# Отчет по лабораторной работе №1
 
-Студент: Пужук Александр 
+Тема: Аренда автомобиля (каршеринг)  
 
-Тема: Аренда автомобиля (каршеринг)
+Студент: Пужук Александр  
+
+Группа: 2 курс, факультет математики и информатики (ГрГУ)
+
+
+
+\---
 
 
 
@@ -12,15 +18,43 @@
 
 
 
+\---
+
+
+
 \## 2. Диаграммы
 
-\* BPMN: diagrams/process.bpmn и diagrams/process-bpmn.png
 
-\* UML Activity: diagrams/activity.drawio и diagrams/activity-uml.png
 
-\* Sequence: docs/sequence.md
+\### 2.1. BPMN-диаграмма
 
-\* Flowchart: docs/flowchart.md
+Файлы в репозитории: diagrams/process.bpmn и diagrams/process-bpmn.png  
+
+!\[BPMN Диаграмма](./diagrams/process-bpmn.png)
+
+
+
+\### 2.2. UML Activity Diagram
+
+Файлы в репозитории: diagrams/activity.drawio и diagrams/activity-uml.png  
+
+!\[UML Activity](./diagrams/activity-uml.png)
+
+
+
+\### 2.3. Sequence Diagram 
+
+Файл в репозитории: docs/sequence.md
+
+
+
+\### 2.4. Flowchart 
+
+Файл в репозитории: docs/flowchart.md
+
+
+
+\---
 
 
 
@@ -31,6 +65,10 @@
 \* В текстовом формате .bpmn Git распознал код и подсветил зеленым новые добавленные строки (XML-теги задачи).
 
 \* В бинарном формате картинки .png Git просто написал Binary files differ, так как не может построчно сравнить изображение.
+
+
+
+\---
 
 
 
