@@ -1,0 +1,151 @@
+[
+    {
+        "id": "517cca9c43a59e1b",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 1740,
+        "wires": [
+            [
+                "832695930360300b"
+            ]
+        ]
+    },
+    {
+        "id": "832695930360300b",
+        "type": "function",
+        "z": "2ee6b81b928156c7",
+        "name": "function 5",
+        "func": "msg.payload = Math.floor(Math.random() * 30) + 10;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1740,
+        "wires": [
+            [
+                "6f75e441b7d116f3",
+                "2e7925e02622ea77"
+            ]
+        ]
+    },
+    {
+        "id": "6f75e441b7d116f3",
+        "type": "ui_gauge",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "group": "1f806728d2754e3b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 730,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "2e7925e02622ea77",
+        "type": "ui_chart",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "group": "1f806728d2754e3b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 1820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1f806728d2754e3b",
+        "type": "ui_group",
+        "name": "Температура сервера",
+        "tab": "4cb3167fa2774882",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4cb3167fa2774882",
+        "type": "ui_tab",
+        "name": "Моя Лабораторная",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2b1819a3decd89d0",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

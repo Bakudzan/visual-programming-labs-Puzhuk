@@ -1,0 +1,116 @@
+[
+    {
+        "id": "f1641f8f4aa95cc7",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "старт",
+        "payloadType": "str",
+        "x": 250,
+        "y": 520,
+        "wires": [
+            [
+                "55ae7ac926f2c79e"
+            ]
+        ]
+    },
+    {
+        "id": "55ae7ac926f2c79e",
+        "type": "function",
+        "z": "2ee6b81b928156c7",
+        "name": "function 2",
+        "func": "// Требование: let/const, массив, объект, цикл for, if/else\n\nconst studentName = \"Пужук\"; // Используем const\nlet grades = [4, 5, 3, 5, 4]; // Используем let и массив (Array)\nlet sum = 0;\n\n// Используем цикл for\nfor (let i = 0; i < grades.length; i++) {\n    sum += grades[i];\n}\n\nlet average = sum / grades.length;\nlet status = \"\";\n\n// Используем if/else\nif (average >= 4) {\n    status = \"Молодец, стипендия будет!\";\n} else {\n    status = \"Нужно подтянуть хвосты...\";\n}\n\n// Используем объект (Object)\nconst resultData = {\n    name: studentName,\n    marks: grades,\n    averageScore: average,\n    verdict: status,\n    trigger: msg.payload // то самое слово \"старт\" из inject\n};\n\n// Функция должна возвращать объект с полем payload\nmsg.payload = resultData;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 520,
+        "wires": [
+            [
+                "d8605b97518d2921"
+            ]
+        ]
+    },
+    {
+        "id": "d8605b97518d2921",
+        "type": "switch",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "property": "payload.averageScore",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "4",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 520,
+        "wires": [
+            [
+                "946252dc5c478df6"
+            ],
+            [
+                "52279d3b4e30029b"
+            ]
+        ]
+    },
+    {
+        "id": "946252dc5c478df6",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "52279d3b4e30029b",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 580,
+        "wires": []
+    }
+]

@@ -1,0 +1,165 @@
+[
+    {
+        "id": "14d73b59364a93d0",
+        "type": "telegram receiver",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "bot": "24cfd7d33b8fe4f4",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "handleprocessupdates": false,
+        "x": 170,
+        "y": 1960,
+        "wires": [
+            [
+                "6ba0ee436f60e520"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "380409da025806d1",
+        "type": "telegram sender",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "bot": "24cfd7d33b8fe4f4",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1050,
+        "y": 1960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd7a6d6b170fd291",
+        "type": "change",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "Привет! Я бот для второй лабы.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1900,
+        "wires": [
+            [
+                "380409da025806d1"
+            ]
+        ]
+    },
+    {
+        "id": "733600be384b69fe",
+        "type": "change",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "PONG! Бот работает отлично.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 2020,
+        "wires": [
+            [
+                "380409da025806d1"
+            ]
+        ]
+    },
+    {
+        "id": "6ba0ee436f60e520",
+        "type": "switch",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/start",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/ping",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 430,
+        "y": 1960,
+        "wires": [
+            [
+                "cd7a6d6b170fd291"
+            ],
+            [
+                "733600be384b69fe"
+            ],
+            [
+                "380409da025806d1"
+            ]
+        ]
+    },
+    {
+        "id": "24cfd7d33b8fe4f4",
+        "type": "telegram bot",
+        "botname": "Мой ботик",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "6e1db96796e322a1",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "19.0.3"
+        }
+    }
+]

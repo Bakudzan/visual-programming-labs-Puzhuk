@@ -1,0 +1,68 @@
+[
+    {
+        "id": "14c1aac5d20ce1ce",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "старт",
+        "payloadType": "str",
+        "x": 230,
+        "y": 420,
+        "wires": [
+            [
+                "c6e771ed64827be7"
+            ]
+        ]
+    },
+    {
+        "id": "11e447dcabcff343",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c6e771ed64827be7",
+        "type": "function",
+        "z": "2ee6b81b928156c7",
+        "name": "function 1",
+        "func": "// Требование: let/const, массив, объект, цикл for, if/else\n\nconst studentName = \"Пужук\"; // Используем const\nlet grades = [4, 5, 3, 5, 4]; // Используем let и массив (Array)\nlet sum = 0;\n\n// Используем цикл for\nfor (let i = 0; i < grades.length; i++) {\n    sum += grades[i];\n}\n\nlet average = sum / grades.length;\nlet status = \"\";\n\n// Используем if/else\nif (average >= 4) {\n    status = \"Молодец, стипендия будет!\";\n} else {\n    status = \"Нужно подтянуть хвосты...\";\n}\n\n// Используем объект (Object)\nconst resultData = {\n    name: studentName,\n    marks: grades,\n    averageScore: average,\n    verdict: status,\n    trigger: msg.payload // то самое слово \"старт\" из inject\n};\n\n// Функция должна возвращать объект с полем payload\nmsg.payload = resultData;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "11e447dcabcff343"
+            ]
+        ]
+    }
+]

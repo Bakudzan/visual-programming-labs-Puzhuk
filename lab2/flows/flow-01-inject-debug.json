@@ -1,0 +1,48 @@
+[
+    {
+        "id": "e9fb295f8b5d51e6",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lab2/Puzhuk/basic",
+        "payload": "Puzhuk",
+        "payloadType": "str",
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "66609374a3b58d62"
+            ]
+        ]
+    },
+    {
+        "id": "66609374a3b58d62",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 340,
+        "wires": []
+    }
+]

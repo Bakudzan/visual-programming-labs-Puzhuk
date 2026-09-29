@@ -1,0 +1,163 @@
+[
+    {
+        "id": "ca20cb006f11a951",
+        "type": "http in",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "url": "/api/text",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1340,
+        "wires": [
+            [
+                "d8485608d6029a99"
+            ]
+        ]
+    },
+    {
+        "id": "3fcfd10ee637212d",
+        "type": "http response",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "d8485608d6029a99",
+        "type": "change",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Привет! Это мой первый сервер на Node-RED.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1340,
+        "wires": [
+            [
+                "3fcfd10ee637212d"
+            ]
+        ]
+    },
+    {
+        "id": "3a75df742d105841",
+        "type": "http in",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "url": "/api/info",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 1440,
+        "wires": [
+            [
+                "89ba08ef47e3d954"
+            ]
+        ]
+    },
+    {
+        "id": "1052771a2ddac33c",
+        "type": "http response",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "89ba08ef47e3d954",
+        "type": "change",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"author\": \"Puzhuk\", \"status\": \"Успешно\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 1440,
+        "wires": [
+            [
+                "1052771a2ddac33c"
+            ]
+        ]
+    },
+    {
+        "id": "4015ce82278b5aa0",
+        "type": "function",
+        "z": "2ee6b81b928156c7",
+        "name": "function 4",
+        "func": "// Проверяем, передал ли пользователь параметр id\nif (msg.payload.id) {\n    msg.statusCode = 200; // Успех\n    msg.payload = {\n        message: \"Товар найден\",\n        itemId: msg.payload.id\n    };\n} else {\n    msg.statusCode = 400; // Ошибка клиента\n    msg.payload = {\n        error: \"Bad Request. Вы не передали параметр ?id=\"\n    };\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1540,
+        "wires": [
+            [
+                "c83f69b8b881ee29"
+            ]
+        ]
+    },
+    {
+        "id": "806ecf3854d8909b",
+        "type": "http in",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "url": "/api/items",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 320,
+        "y": 1540,
+        "wires": [
+            [
+                "4015ce82278b5aa0"
+            ]
+        ]
+    },
+    {
+        "id": "c83f69b8b881ee29",
+        "type": "http response",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 1540,
+        "wires": []
+    }
+]

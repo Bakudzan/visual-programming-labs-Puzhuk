@@ -1,0 +1,133 @@
+[
+    {
+        "id": "4fea3a0d5f34e62d",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 2160,
+        "wires": [
+            [
+                "fbd1e937a581a28d"
+            ]
+        ]
+    },
+    {
+        "id": "fbd1e937a581a28d",
+        "type": "function",
+        "z": "2ee6b81b928156c7",
+        "name": "function 6",
+        "func": "msg.payload = \"Привет! Это текст из Node-RED. Время: \" + new Date().toLocaleTimeString();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 2160,
+        "wires": [
+            [
+                "3a82bf27672be6f0"
+            ]
+        ]
+    },
+    {
+        "id": "3a82bf27672be6f0",
+        "type": "file",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "filename": "/data/my_text.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 720,
+        "y": 2160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85b10d30cf61b216",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 2260,
+        "wires": [
+            [
+                "ba55430b8fe506b1"
+            ]
+        ]
+    },
+    {
+        "id": "ba55430b8fe506b1",
+        "type": "file in",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "filename": "/data/my_text.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 440,
+        "y": 2260,
+        "wires": [
+            [
+                "2f8f33a4341bc83d"
+            ]
+        ]
+    },
+    {
+        "id": "2f8f33a4341bc83d",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 2260,
+        "wires": []
+    }
+]

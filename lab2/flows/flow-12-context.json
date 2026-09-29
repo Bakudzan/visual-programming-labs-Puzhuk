@@ -1,0 +1,67 @@
+[
+    {
+        "id": "74f252b3231de0fc",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 2380,
+        "wires": [
+            [
+                "77d67e9695a2dff2"
+            ]
+        ]
+    },
+    {
+        "id": "b350ca763e2015a4",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "77d67e9695a2dff2",
+        "type": "function",
+        "z": "2ee6b81b928156c7",
+        "name": "function 7",
+        "func": "// Пытаемся получить текущее значение счетчика из контекста потока. Если его нет, берем 0.\nlet count = flow.get('myCounter') || 0;\n\n// Увеличиваем на 1\ncount += 1;\n\n// Сохраняем обратно в контекст потока\nflow.set('myCounter', count);\n\nmsg.payload = \"Количество нажатий: \" + count;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 2380,
+        "wires": [
+            [
+                "b350ca763e2015a4"
+            ]
+        ]
+    }
+]

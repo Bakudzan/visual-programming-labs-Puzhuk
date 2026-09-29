@@ -1,0 +1,72 @@
+[
+    {
+        "id": "9988884ea1e594de",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "Получить факт",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 940,
+        "wires": [
+            [
+                "73eb6036c4d49c0a"
+            ]
+        ]
+    },
+    {
+        "id": "73eb6036c4d49c0a",
+        "type": "http request",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://catfact.ninja/fact",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 470,
+        "y": 940,
+        "wires": [
+            [
+                "e2922e9060641fd0"
+            ]
+        ]
+    },
+    {
+        "id": "e2922e9060641fd0",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 940,
+        "wires": []
+    }
+]

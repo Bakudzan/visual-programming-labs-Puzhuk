@@ -1,0 +1,67 @@
+[
+    {
+        "id": "222d800067c68782",
+        "type": "inject",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{     \"lastName\": \"Пужук\",     \"firstName\": \"Александр\",     \"group\": \"СДП-ИИ-241\" }",
+        "payloadType": "json",
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "2b894b21edc2776b"
+            ]
+        ]
+    },
+    {
+        "id": "b88fd040ab6eceee",
+        "type": "debug",
+        "z": "2ee6b81b928156c7",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "2b894b21edc2776b",
+        "type": "template",
+        "z": "2ee6b81b928156c7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"student_info\": \"Студент {{payload.lastName}} {{payload.firstName}}\",\n    \"student_group\": \"{{payload.group}}\",\n    \"status\": \"Успешно использует шаблоны Mustache\",\n    \"generated_at\": \"Сегодня\"\n}",
+        "output": "json",
+        "x": 460,
+        "y": 820,
+        "wires": [
+            [
+                "b88fd040ab6eceee"
+            ]
+        ]
+    }
+]
