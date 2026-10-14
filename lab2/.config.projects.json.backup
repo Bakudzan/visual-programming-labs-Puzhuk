@@ -1,0 +1,7 @@
+{
+    "projects": {
+        "lab2-flows": {
+            "credentialSecret": false
+        }
+    }
+}
