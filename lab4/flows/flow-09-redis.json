@@ -1,0 +1,96 @@
+{
+  "name": "09_Redis_Set_Get_Puzhuk_ИИ-241",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "72668061-5380-4029-9370-51b5fa94c45b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "puzhuk",
+        "value": "Puzhuk ИИ-241 Redis Value"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "8558f81f-3a7c-4516-a848-1a6f6ba44b01",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "6B78a66sjjuZ5gRJ",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "puzhuk",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "629dc679-3775-4a0e-b599-df87c77a1f95",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "6B78a66sjjuZ5gRJ",
+          "name": "Redis account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0f02b0c7-0451-4e62-83b7-60c1a22adbb2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d092290ae882ad34cec4aeb3799c4e0f8124ac82e4d7bb304e1040e92905d67c"
+  },
+  "nodeGroups": [],
+  "id": "cOIWEWoPBJorhHVX",
+  "tags": []
+}

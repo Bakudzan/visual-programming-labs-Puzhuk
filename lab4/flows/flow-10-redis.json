@@ -1,0 +1,95 @@
+{
+  "name": "10_Redis_Delete_Exists_Puzhuk_ИИ-241",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d2fcfcb3-2b2d-4a84-a5f9-1d215578702a",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "puzhuk"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "bc39600f-feba-417a-95ea-fd09be47dba7",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "6B78a66sjjuZ5gRJ",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "puzhuk",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "b7088d6d-18b2-4d33-89a9-e08eeb91941d",
+      "name": "Redis Exists Check",
+      "credentials": {
+        "redis": {
+          "id": "6B78a66sjjuZ5gRJ",
+          "name": "Redis account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Redis Exists Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "fbb80004-1afe-4fb0-abba-f22149dc474c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d092290ae882ad34cec4aeb3799c4e0f8124ac82e4d7bb304e1040e92905d67c"
+  },
+  "nodeGroups": [],
+  "id": "e29RXpWvSRsdhBAC",
+  "tags": []
+}
