@@ -1,0 +1,77 @@
+{
+  "name": "02_Code_Puzhuk_ИИ-241",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1c5cbf87-390c-4dba-9f1a-74da9c1fb03e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "const studentInfo = {\n  surname: \"Puzhuk\",\n  group: \"ИИ-241\"\n};\n\nconst points = [15, 20, 25, 30];\nlet totalPoints = 0;\n\nfor (let i = 0; i < points.length; i++) {\n  totalPoints += points[i];\n}\n\nlet status = \"\";\nif (totalPoints >= 80) {\n  status = \"Зачет (Puzhuk ИИ-241)\";\n} else {\n  status = \"На доработку\";\n}\n\nreturn [\n  {\n    json: {\n      payload: {\n        student: studentInfo,\n        score: totalPoints,\n        result: status\n      }\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "123b7b57-fd8c-4f2b-99ec-245616a17e65",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "b401abe7-04ff-4f48-b789-278812eca60f",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "d1deb2ba-c45c-4ee1-a597-2162bd691559",
+  "meta": {
+    "instanceId": "d092290ae882ad34cec4aeb3799c4e0f8124ac82e4d7bb304e1040e92905d67c"
+  },
+  "nodeGroups": [],
+  "id": "Kx3hpcawnZ3rFQOb",
+  "tags": []
+}
