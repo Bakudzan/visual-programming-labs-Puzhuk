@@ -1,0 +1,86 @@
+{
+  "name": "05_HTTP_Request_Puzhuk_ИИ-241",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bae7a504-bc64-4803-a0fe-c30e366b2dbe",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://jsonplaceholder.typicode.com/todos/1",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "fdfbb3a6-a5d7-47d8-a589-902a19046176",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const apiData = $input.first().json;\n\nreturn [\n  {\n    json: {\n      student: \"Puzhuk ИИ-241\",\n      status: \"HTTP GET Success\",\n      receivedData: apiData\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "356a83de-f326-4b00-929b-2ba8f73ea010",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "5aa26019-b9f7-4eb1-b6ca-199d7e97fc3b",
+  "meta": {
+    "instanceId": "d092290ae882ad34cec4aeb3799c4e0f8124ac82e4d7bb304e1040e92905d67c"
+  },
+  "nodeGroups": [],
+  "id": "yPS09siMzSNz9A5o",
+  "tags": []
+}

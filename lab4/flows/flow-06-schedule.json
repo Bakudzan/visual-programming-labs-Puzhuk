@@ -1,0 +1,67 @@
+{
+  "name": "06_Schedule_Puzhuk_ИИ-241",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "536fe4db-fae5-4868-a664-f94de44e80df",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\n\nreturn [\n  {\n    json: {\n      student: \"Puzhuk ИИ-241\",\n      isoTimestamp: now.toISOString(),\n      readableTime: now.toLocaleString(\"ru-RU\"),\n      scheduleInterval: \"Every 1 minutes\"\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "b5c90bb1-11aa-4544-b90c-dfca27eb5d9a",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "e28a0da6-b46d-4200-a86e-11896779d1b1",
+  "meta": {
+    "instanceId": "d092290ae882ad34cec4aeb3799c4e0f8124ac82e4d7bb304e1040e92905d67c"
+  },
+  "nodeGroups": [],
+  "id": "PUTDBVSVxACFXTBB",
+  "tags": []
+}

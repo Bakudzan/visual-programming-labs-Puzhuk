@@ -1,0 +1,101 @@
+{
+  "name": "04_Set_Fields_Puzhuk_ИИ-241",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bf75cbb1-aafd-4c68-a469-96383c2c2623",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d5a9f958-e40a-45e3-8376-b472b07cf12c",
+              "name": "topic",
+              "value": "lab4/puzhuk/ИИ-241/update",
+              "type": "string"
+            },
+            {
+              "id": "a473c24d-c08f-489c-855e-6cef9cc59a42",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "64a64b5f-0ede-423a-91cb-32cc8a5d588d",
+              "name": "payload",
+              "value": "Data modified by Puzhuk ИИ-241",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "6bf431ea-3917-43ac-a626-96c3c8cf5866",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "const completeMsg = $input.first();\nconsole.log(\"Complete msg object (Puzhuk ИИ-241):\", completeMsg);\n\nreturn [\n  {\n    json: {\n      completeMsgObject: completeMsg.json,\n      student: \"Puzhuk ИИ-241\",\n      inspectedAt: new Date().toISOString()\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        432,
+        0
+      ],
+      "id": "308935e5-dbdd-493b-a2ed-fb38f545ca98",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "dee17f21-0c83-412f-8a95-fdcc8257304a",
+  "meta": {
+    "instanceId": "d092290ae882ad34cec4aeb3799c4e0f8124ac82e4d7bb304e1040e92905d67c"
+  },
+  "nodeGroups": [],
+  "id": "X6VyFJTKxgYDvmC7",
+  "tags": []
+}
